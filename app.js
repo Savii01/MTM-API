@@ -2,12 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser')
 
-const config = require('./config/configDB');
-// config.authenticate().then(() => {
-//     console.log('connection Successful');
-// }).catch(err => {
-//     console.log('Error: ' + err);
-// })
+
 
 const app = express();
 
@@ -22,19 +17,25 @@ app.get('/', (req,res)=>{
 
 
 //Routes  
-app.use('/', require('./Routes/indexRoutes'));
+require("./Routes/acctRoute")(app);
+require("./routes/adminAssRoute")(app)
+require("./routes/artistRoute")(app)
+require("./routes/contractRoute")(app)
+require("./routes/eventOrgRoute")(app)
+require("./routes/eventTableRoute")(app)
+require("./routes/expensesRoute")(app)
+require("./routes/generalRoute")(app)
+require("./routes/managementRoute")(app)
+require("./routes/managerRoutes")(app)
+require("./routes/managerRoutes")(app)
+require("./routes/newsRoutes")(app)
+require("./routes/recArtistRoutes")(app)
+
+
+
 
 
 
 const port = process.env.PORT || 8080;
-connectDb.sync().then(() => {
-  app.listen(port, console.log(`app is listening on port:  ${port}....`)
-  )})
-
-  .catch((error) => {
-    res.status(500).send({
-        message:
-          err.message
-    });
-});
-  
+app.listen(port, () => console.log(`app is listening on port:  ${port}....`)
+  )
