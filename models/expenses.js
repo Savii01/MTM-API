@@ -7,21 +7,21 @@ const expenses = connectDb.define('expenses',{
         dateCreated:{type:Sequelize.DATE, allowNull: false},
         companyID:{type:Sequelize.INTEGER,
             references:{
-                model: general,
-                key: companyID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.general,
+                key: Sequelize.companyID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
         artistID:{type:Sequelize.INTEGER,
             references:{
-                model: artist,
-                key: artistID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.artist,
+                key: Sequelize.artistID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
         managerID:{type:Sequelize.INTEGER,
             references:{
-                model: acctDetail,
-                key: accountID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.acctDetail,
+                key: Sequelize.accountID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }},
 
     });

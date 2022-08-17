@@ -7,9 +7,9 @@ const contract = connectDb.define('contract',{
     dateTerminated:{type:Sequelize.DATE, allowNull: false},
     artistID:{type:Sequelize.INTEGER,
         references:{
-            model: artist,
-            key: artistID,
-            deferrable: Deferrable.INITIALLY_IMMEDIATE
+            model: Sequelize.artist,
+            key: Sequelize.artistID,
+            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }},
 });
 

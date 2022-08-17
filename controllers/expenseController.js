@@ -1,4 +1,3 @@
-const { updateExpense } = require('../data/expenseData');
 const expenses = require('../data/expenseData');
 
 const Expenses= {
@@ -58,7 +57,7 @@ function findExpenseByID(req, res) {
 //updating
 
 function updateExpense(req, res) {
-    expenses.updateExpense(req.body, req.params.id).
+    expenses.updateeXpense(req.body, req.params.id).
         then((data) => {
             res.status(200).json({
                 message: "Expense is successfully updated",

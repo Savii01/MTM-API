@@ -6,21 +6,21 @@ const general = connectDb.define('general',{
         companyName:{type: Sequelize.STRING, allowNull: false},
         eventOrgID:{type:Sequelize.INTEGER,
             references:{
-                model: eventOrg,
-                key: eventOrgID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.eventOrg,
+                key: Sequelize.eventOrgID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
         artistID:{type:Sequelize.INTEGER,
             references:{
-                model: artist,
-                key: artistID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.artist,
+                key: Sequelize.artistID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
         managerID:{type:Sequelize.INTEGER,
             references:{
-                model: acctDetail,
-                key: accountID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.acctDetail,
+                key: Sequelize.accountID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }},
 
     });

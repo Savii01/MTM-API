@@ -8,21 +8,21 @@ const management = connectDb.define('management',{
         companyPercent:{type:Sequelize.INTEGER,allowNull:false},
         expenseID:{type:Sequelize.INTEGER,
             references:{
-                model: expenses,
-                key: expenseID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.expenses,
+                key: Sequelize.expenseID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
         eventOrgID:{type:Sequelize.INTEGER,
             references:{
-                model: eventOrg,
-                key: eventOrgID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.eventOrg,
+                key: Sequelize.eventOrgID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }},
         eventID:{type:Sequelize.INTEGER,
             references:{
-                model: eventTable,
-                key: eventID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.eventTable,
+                key: Sequelize.eventID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
         dateCreated:{type:Sequelize.DATE, allowNull:false}    
     });

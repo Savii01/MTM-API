@@ -107,4 +107,4 @@ function deleteAll(req,res){
 
 
 
-module.exports = Contracts;
+module.exports = EventOrg;

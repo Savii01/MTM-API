@@ -3,22 +3,22 @@ const connectDb = require ('../config/configDB');
 
 const eventOrg = connectDb.define('eventOrg',{
         eventOrgID:{type: Sequelize.INTEGER, primaryKey:true, autoIncrement: true},
-        eventOrgName:{type: Sequelize.STRING, allowNull: false},
+        eventOrgName:{type: Sequelize.STRING,validate:{isAlpha: true},allowNull: false},
         phone:{type:Sequelize.INTEGER, allowNull: false},
         email:{type:Sequelize.STRING, allowNull: false},
         companyName:{type:Sequelize.STRING, allowNull: false},
         location:{type:Sequelize.STRING, allowNull: false},
         artistID:{type:Sequelize.INTEGER,
             references:{
-                model: artist,
-                key: artistID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.artist,
+                key: Sequelize.artistID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
         managerID:{type:Sequelize.INTEGER,
             references:{
-                model: acctDetail,
-                key: accountID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.acctDetail,
+                key: Sequelize.accountID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }},
         dateCreated:{type:Sequelize.DATE, allowNull: false}
 

@@ -8,9 +8,9 @@ const news = connectDb.define('news',{
         artistName:{type:Sequelize.STRING, allowNull: false},
         artistID:{type:Sequelize.INTEGER,
             references:{
-                model: artist,
-                key: artistID,
-                deferrable: Deferrable.INITIALLY_IMMEDIATE
+                model: Sequelize.artist,
+                key: Sequelize.artistID,
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }},
     });
     module.exports = news;
