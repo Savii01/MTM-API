@@ -1,24 +1,26 @@
+module.exports = app => {
 const express = require('express');
 const router = express.Router();
-const expenses = require("../controllers/expensesController.js");
+const expenses = require("../controllers/expenseController");
 
 
     // Create a new expenses
-    router.post("/", expenses.create);
+    router.post("/", expenses.createExpense);
 
     // Retrieve all expenses
-    router.get("/", expenses.findAll);
+    router.get("/", expenses.findAllExpense);
 
     // Retrieve one  expenses
-    router.get("/:id", expenses.findOne);
+    router.get("/:id", expenses.findExpenseByID);
 
     // Update a expenses with id
-    router.put("/:id", expenses.update);
+    router.put("/:id", expenses.updateExpense);
 
     // Delete a expenses with id
-    router.delete("/:id", expenses.delete);
+    router.delete("/:id", expenses.deleteById);
 
     // Delete all expenses
     router.delete("/", expenses.deleteAll);
     
-module.exports = router;
+    app.use('/api/expenses', router);
+};

@@ -1,23 +1,25 @@
+module.exports = app => {
 const express = require('express');
 const router = express.Router();
 const manager = require("../controllers/managerController.js");
 
     // Create a new manager
-    router.post("/", manager.create);
+    router.post("/", manager.createManager);
 
     // Retrieve all manager
-    router.get("/", manager.findAll);
+    router.get("/", manager.findAllManager);
 
     // Retrieve one  manager
-    router.get("/:id", manager.findOne);
+    router.get("/:id", manager.findManagerByID);
 
     // Update a manager with id
-    router.put("/:id", manager.update);
+    router.put("/:id", manager.updateManager);
 
     // Delete a manager with id
-    router.delete("/:id", manager.delete);
+    router.delete("/:id", manager.deleteById);
 
     // Delete all manager
     router.delete("/", manager.deleteAll);
 
-module.exports = router;
+    app.use('/api/manager', router);
+};

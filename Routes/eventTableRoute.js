@@ -1,23 +1,25 @@
+module.exports = app => {
 const express = require('express');
 const router = express.Router();
 const eventTable = require("../controllers/eventTableController.js");
 
     // Create a new eventTable
-    router.post("/", eventTable.create);
+    router.post("/", eventTable.createEventTable);
 
     // Retrieve all eventTable
-    router.get("/", eventTable.findAll);
+    router.get("/", eventTable.findAllEventTable);
 
     // Retrieve one  eventTable
-    router.get("/:id", eventTable.findOne);
+    router.get("/:id", eventTable.findEventTableByID);
 
     // Update a eventTable with id
-    router.put("/:id", eventTable.update);
+    router.put("/:id", eventTable.updateEventTable);
 
     // Delete a eventTable with id
-    router.delete("/:id", eventTable.delete);
+    router.delete("/:id", eventTable.deleteById);
 
     // Delete all eventTable
     router.delete("/", eventTable.deleteAll);
 
-module.export = router;
+    app.use('/api/eventTable', router);
+}

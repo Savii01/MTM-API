@@ -1,24 +1,26 @@
+module.exports = app => {
 const express = require('express');
 const router = express.Router();
-const recArtist = require("../controllers/recArtistController.js");
+const recArtist = require("../controllers/recArtistControllers.js");
 
 
     // Create a new recArtist
-    router.post("/", recArtist.create);
+    router.post("/", recArtist.createRecArt);
 
     // Retrieve all nrecArtistews
-    router.get("/", recArtist.findAll);
+    router.get("/", recArtist.findAllRecArt);
 
     // Retrieve one  recArtist
-    router.get("/:id", recArtist.findOne);
+    router.get("/:id", recArtist.findAllRecArt);
 
     // Update a recArtist with id
-    router.put("/:id", recArtist.update);
+    router.put("/:id", recArtist.updateRecArt);
 
     // Delete a recArtist with id
-    router.delete("/:id", recArtist.delete);
+    router.delete("/:id", recArtist.deleteById);
 
     // Delete all recArtist
     router.delete("/", recArtist.deleteAll);
     
-module.exports = router;
+    app.use('/api/reca]Artist', router);
+};
